@@ -1,0 +1,186 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agora Live Broadcast</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        #local-video {
+            width: 640px;
+            height: 480px;
+            background-color: #000;
+            border: 2px solid white;
+            margin-bottom: 20px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: gray;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="local-video"></div>
+    <button id="startHost">Start as Host</button>
+    <button id="startAudience">Start as Audience</button>
+    <script src="bundle.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agora Live Broadcast with Chat</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        #local-video {
+            width: 640px;
+            height: 480px;
+            background-color: #000;
+            border: 2px solid white;
+            margin: 20px;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: gray;
+            color: white;
+        }
+
+        #chatroom {
+            width: 300px;
+            max-height: 90%;
+            background-color: #1a1a1a;
+            border-left: 2px solid white;
+            position: absolute;
+            top: 5%;
+            right: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -2px 0 5px rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+            transform: translateX(100%);
+        }
+
+        #chatroom:hover {
+            transform: translateX(0);
+        }
+
+        #chatMessages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 10px;
+            color: white;
+        }
+
+        #chatInputContainer {
+            display: flex;
+            padding: 10px;
+            background-color: #333;
+        }
+
+        #chatInput {
+            flex-grow: 1;
+            padding: 10px;
+            color: black;
+            font-size: 16px;
+        }
+
+        #nameModal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 9999;
+        }
+
+        #nameModal input {
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Container -->
+    <div id="local-video"></div>
+
+    <!-- Buttons -->
+    <div>
+        <button id="startHost">Start as Host</button>
+        <button id="startAudience">Start as Audience</button>
+    </div>
+
+    <!-- Chatroom -->
+    <div id="chatroom">
+        <div id="chatMessages"></div>
+        <div id="chatInputContainer">
+            <input id="chatInput" type="text" placeholder="Type a message..." />
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+
+    <!-- Name Modal -->
+    <div id="nameModal">
+        <h2>Enter Your Name</h2>
+        <input id="nameInput" type="text" placeholder="Your name..." />
+        <button id="joinButton">Join</button>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
